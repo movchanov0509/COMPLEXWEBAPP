@@ -26,10 +26,10 @@ export default defineConfig({
     trace: 'on-first-retry',
   },
   webServer: {
-    command: 'npm run start',
-    url: 'http://localhost:8080',
-    reuseExistingServer: true,
-    timeout: 120 * 1000,
+    command: "npx http-server src -p 8080 --cors",
+    port: 8080,
+    timeout: 300000,
+    reuseExistingServer: true
   },
 
   /* Configure projects for major browsers */
