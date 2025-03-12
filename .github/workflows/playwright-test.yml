@@ -23,15 +23,15 @@ jobs:
 
       - name: Install Playwright and dependencies
         run: |
-          npm install -g playwright serve
+          npm install -g playwright http-server
           npx playwright install --with-deps
 
       - name: Check src/ folder contents
         run: ls -la src/
 
-      - name: Start HTTP server
+      - name: Start HTTP server with CORS
         run: |
-          serve -s src -l 8080 & 
+          npx http-server src -p 8080 --cors & 
           sleep 5
           curl --retry 10 --retry-connrefused --retry-delay 3 http://localhost:8080
 
